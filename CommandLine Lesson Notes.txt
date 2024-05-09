@@ -1,0 +1,73 @@
+ls - list directories
+ls -a -List with greater detail, including hidden files
+ls -l -List all the files in long format as well as permissions
+ls -t -List all files in order of time they were last modified
+ls -alt - List all files even hidden files in long format in order of when modified
+pwd - print working directory, outputs the name of the directory you are in
+cd - change directory, changes the working directory based on the inputs following cd
+mkdir - make directory
+touch - create a new file
+(tab) - Autocomplete
+(up/down) - scroll through previous commands
+clear - clears the terminal of text (doesn't undo work)
+
+
+.. -parent directory link
+. -current directory link
+cat file.txt -Outputs all the text in the file to the terminal without opening it
+cp source.txt destination.txt -Copy the source file into the destination file
+cp source.txt newDirectory -Make an exact copy of a file to a new directory
+cp file1.txt file2.txt newDirectory -Make a copy of multiple files into a new directory
+.bak -A file type often used to indicate it is a backup of a txt file
+* -Wildcard characters
+cp * my_directory/ -copy all files in the working directory into the new directory
+cp *.txt my_directory/ -copy only txt files from the working directory into the new location
+mv -move without making a copy
+mv file.txt my_directory/
+mv file1.txt file2.txt my_directory/
+mv file_orig.txt file_new.txt  -Change the name of a file to something else
+rm unwanted_file.txt -Remove a file
+rm -r -Remove a directory with all of its children ***WARNING: This is a permanent command and cannot be undone
+
+echo string -outputs strings
+standard input (stdin) - information inputted into the terminal
+standard output (stdout) - information outputted after a process
+standard error (stderr) - error message outputted by a failed process
+> -command redirect the standard output from the left to a file on the right, overwriting or creating the file
+echo "Hello" > hello.txt -Overwrites anything in hello.txt and replaces it with the standard output of the left side
+cat desert.txt > hello.txt
+>> -command reditect the standard output from the left to a file on the right, appending it to the file
+< -Commant redirect the input from the right and directs it into the command on the left
+| -"pipe"takes the standard output of the command on the left and pipes it as standard input to the command on the right
+cat volcanoes.txt | wc -get the standard output from cat volcanoes.txt and make it the input to wc (word count)
+cat volcanoes.txt | wc | cat > count.txt -pass the output from cat volcanoes.txt into the wc function and take the output of the wc function and pass it into the cat function, and replace the content of the count.txt file with the cat word count
+sort continents.txt -takes the standard input from continents.txt and sorts in alphabetically, then prints or outputs it
+cat glaciers.txt | sort > sorted-glaciers.txt -This takes the content of glaciers.txt, sorts it, and saves it to sorted-glaciers.txt
+uniq -Filters out adjacent identical lines
+sort deserts.txt | uniq > uniq-deserts.txt -sort the deserts alphabetically, then delete adjacent duplicate lines (because you sorted, you will get all duplicates), then save it to uniq-deserts.txt
+grep -global regular expression print, searches files for lines that match a pattern and then returns the results
+grep -i -makes the command case insensitive (case sensitive is the default)
+grep -i Mount mountains.txt -search for all lines in the text file mountainstxt that contain the case insensitive string Mount
+grep -R -searches all files in a directory and outputs filenames and lines containing matched results (-R stands for recursive)
+grep -Rl -searches a directory and returns only file names that have what you are searching for
+sed -stream editor, similar to find and replace, doesn't change the file
+'s/snow/rain/' -s (substitute) snow with rain
+'s/snow/rain/g' -g (global) changes all instances on a line
+-i -overwrites the file according to sed
+
+(Commands are not case sensitive)
+ctrl + X -command in nano to exit
+ctrl + O -command to save file
+
+source .bash_profile -Basically this runs this code, it formats the current terminal according to the bash profile
+alias pd="pwd" -When you type pd, replace the command with pwd
+history -List all the recent commands
+
+USER="Jane Doe" -Save the string "Jane Dow" to the environment variable USER
+export USER="Jane Doe" makes the variable available to all child sessions
+echo $USER -Return the value of the variable USER
+$ is needed when returning a variable value
+export PS1=">> " -The PS1 variable is the variable used in the terminal as the line start command, and this changes it to be >> instead of $
+$ echo $HOME -Displays the path of the home directory, HOME is a variable containing the path to the home directory
+$ echo $PATH -PATH is a variable containing a series of paths, for example where bin it, or where ROS is
+env -list the environment variables
